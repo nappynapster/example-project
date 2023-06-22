@@ -1,0 +1,68 @@
+<form [formGroup]='form' class='example-form'>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Email</mat-label>
+    <input matInput id='email' type='email' [formControl]='form.controls.email' />
+  </mat-form-field>
+
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.email)'>
+    <p *ngIf="form.controls.email.errors?.['required']">Email ist erforderlich!</p>
+    <p *ngIf="form.controls.email.errors?.['pattern']">Ungültiges Format!</p>
+  </div>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Passwort</mat-label>
+    <input matInput id='password' autocomplete='off' type='password' [formControl]='form.controls.password' />
+  </mat-form-field>
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.password)'>
+    <p *ngIf="form.controls.password.errors?.['required']">Passwort ist erforderlich!</p>
+  </div>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Vorname</mat-label>
+    <input matInput id='firstname' type='text' [formControl]='form.controls.firstName' />
+  </mat-form-field>
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.firstName)'>
+    <p *ngIf="form.controls.firstName.errors?.['required']">Vorname ist erforderlich!</p>
+  </div>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Nachname</mat-label>
+    <input matInput id='lastname' type='text' [formControl]='form.controls.lastName' />
+  </mat-form-field>
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.lastName)'>
+    <p *ngIf="form.controls.lastName.errors?.['required']">Nachname ist erforderlich!</p>
+  </div>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Rolle</mat-label>
+    <mat-select [formControl]='form.controls.role'>
+      <mat-option *ngFor='let role of roles' [value]='role.value'>{{role.caption}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.role)'>
+    <p *ngIf="form.controls.role.errors?.['required']">Rolle ist erforderlich!</p>
+  </div>
+
+  <mat-form-field class='example-full-width'>
+    <mat-label>Position</mat-label>
+    <input matInput id='position' type='text' [formControl]='form.controls.position' />
+  </mat-form-field>
+
+  <div class="alert alert-danger" *ngIf='hasError(form.controls.position)'>
+    <p *ngIf="form.controls.position.errors?.['required']">Position ist erforderlich!</p>
+  </div>
+
+  <mat-slide-toggle [formControl]='form.controls.isActive'>Aktiv</mat-slide-toggle>
+
+</form>
+
+<div>
+  <button mat-raised-button (click)='emitFormClose()'>OK</button>
+  <button mat-raised-button (click)='dialogRef.close()'>Cancel</button>
+</div>

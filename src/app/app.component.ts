@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'crew-connect';
+  title = 'example-project';
 
   opened = false;
 

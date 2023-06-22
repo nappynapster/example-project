@@ -22,12 +22,20 @@ import { _MatSlideToggleRequiredValidatorModule, MatSlideToggleModule } from '@a
 import { LoginComponent } from './login/login.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatListModule } from '@angular/material/list';
+import { AddUserComponent } from './dashboard/user-list/add-user/add-user.component';
+import { UserListComponent } from './dashboard/user-list/user-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthModule } from './auth/auth.module';
+import { UsersApiModule } from './api/users/users.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SideNavComponent
+    SideNavComponent,
+    DashboardComponent,
+    AddUserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +68,8 @@ import { MatListModule } from '@angular/material/list';
     MatSlideToggleModule,
     _MatSlideToggleRequiredValidatorModule,
     MatListModule,
+    AuthModule,
+    UsersApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

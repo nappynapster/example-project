@@ -1,0 +1,10 @@
+<user-list>
+  <h1>Mitarbeiter</h1>
+
+  <ng-container *ngIf='authGuard.isLoggedIn$ | async'>
+    <button mat-button (click)='openAddUserDialog()'>
+      <mat-icon>add</mat-icon>
+      Mitarbeiter hinzufügen
+    </button>
+  </ng-container>
+</user-list>
