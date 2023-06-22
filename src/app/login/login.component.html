@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="example-form">
+  <h1>Login</h1>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput id="email" type="email" [formControl]="form.controls.email" required />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Passwort</mat-label>
+    <input matInput id="password" autocomplete="off" type="password" [formControl]="form.controls.password" required />
+  </mat-form-field>
+
+  <button mat-flat-button type="sumit">Login</button>
+</form>

@@ -1,0 +1,27 @@
+<mat-list role='list'>
+  <ng-container *ngIf='authGuard.isLoggedIn$ | async'>
+
+    <ng-container *ngIf='user$ | async as user'>
+      <h1>{{ user?.firstName + ' ' + user?.lastName }}</h1>
+      <p>{{ user?.email }}</p>
+    </ng-container>
+
+
+    <mat-list-item>
+      <button mat-stroked-button routerLink='/'>Dashboard</button>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button mat-stroked-button routerLink='/profile'>Mein Profil</button>
+    </mat-list-item>
+
+    <mat-list-item>
+      <button mat-stroked-button (click)='authService.logout()'>Abmelden</button>
+    </mat-list-item>
+  </ng-container>
+
+  <mat-list-item>
+    <button mat-stroked-button routerLink='/'>Info</button>
+  </mat-list-item>
+
+</mat-list>
