@@ -1,0 +1,22 @@
+<div class='user-list-container'>
+
+  <ng-content></ng-content>
+
+  <form [formGroup]='form'>
+    <mat-form-field class='example-full-width'>
+      <mat-icon>search</mat-icon>
+      <input autocomplete='off' type='text' matInput placeholder='Mitarbeiter suchen'
+             [formControl]='form.controls.search'>
+    </mat-form-field>
+  </form>
+
+  <ng-container *ngIf="(userResult$ | async) as users">
+    <div class='user-list-row' *ngFor='let user of users'>
+      <div>{{user.firstName}} {{user.lastName}}</div>
+      <div>{{user.position}}</div>
+      <div *ngIf='user.role === roleType.ADMIN'>Administrator</div>
+    </div>
+
+    <div *ngIf="users.length === 0 ">Keine Resultate</div>
+  </ng-container>
+</div>
